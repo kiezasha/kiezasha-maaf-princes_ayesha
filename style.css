@@ -1,0 +1,460 @@
+/* ==========================================
+   1. RESET & VARIABEL WARNA TEMA (MAROON & CREM)
+   ========================================== */
+:root {
+    --bg-primary: #340c0c;       /* Latar belakang utama (Maroon Tua) */
+    --bg-card: #4a1515;          /* Maroon sedikit lebih terang untuk kartu/modal agar teks terlihat */
+    --text-main: #f6ead2;        /* Teks utama (Crem) */
+    --yellow-accent: #e6a63c;    /* Kuning Mustard (Untuk judul, tombol, dan harga) */
+    --yellow-hover: #D09328;     /* Kuning lebih gelap untuk efek hover */
+    --border-color: #e6a63c;     /* Warna garis tepi */
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: var(--bg-primary); 
+    color: var(--text-main); 
+    line-height: 1.6; 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+}
+
+.container { 
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+}
+
+/* ==========================================
+   2. HEADER / NAVBAR
+   ========================================== */
+.navbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 1rem 5%; 
+    background-color: var(--bg-primary); 
+    border-bottom: 2px solid var(--border-color); 
+}
+
+.logo-container { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+}
+
+.logo-icon { 
+    background-color: var(--yellow-accent); 
+    color: var(--bg-primary); 
+    width: 40px; 
+    height: 40px; 
+    border-radius: 8px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 1.2rem; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.logo-text { 
+    font-size: 1.25rem; 
+    font-weight: 700; 
+    color: var(--yellow-accent); 
+}
+
+.nav-links { 
+    display: flex; 
+    gap: 10px; 
+}
+
+/* --- TOMBOL NAVIGASI (EFEK GLASS / KACA) --- */
+.btn-cta { 
+    text-decoration: none; 
+    /* Mengubah warna teks menjadi Crem agar lebih terbaca di atas efek kaca */
+    color: var(--text-main); 
+    
+    /* Background Kuning Semi-Transparan */
+    background-color: rgba(230, 166, 60, 0.45); 
+    
+    /* KUNCI EFEK KACA: Memberikan efek blur pada background yang tembus pandang */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Dukungan untuk browser Safari */
+    
+    padding: 8px 18px; 
+    border-radius: 6px; 
+    font-weight: 600; 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    
+    /* Membuat pantulan cahaya ala kaca (border putih tipis di atas & kiri) */
+    border: 1px solid rgba(230, 166, 60, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    
+    /* Bayangan gelap sesuai permintaan Anda sebelumnya */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6); 
+}
+
+.btn-cta:hover, .btn-cta.active { 
+    /* Background menjadi sedikit lebih pekat saat kursor diarahkan */
+    background-color: rgba(208, 147, 40, 0.65); 
+    
+    /* Pantulan kaca sedikit lebih terang */
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    border-left: 1px solid rgba(255, 255, 255, 0.6);
+    
+    /* Efek animasi naik */
+    transform: translateY(-4px); 
+    
+    /* Bayangan membesar dan sangat gelap */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.9); 
+}
+
+/* ==========================================
+   3. LAYOUT UMUM & TOMBOL 
+   ========================================== */
+.home-container {
+    padding: 30px 0;
+}
+
+.section { 
+    display: flex; 
+    align-items: center; 
+    gap: 50px; 
+    padding: 40px 0; 
+}
+
+
+.content-left, .content-right, .image-left, .image-right { 
+    flex: 1; 
+}
+
+.content-left h1, .content-right h2, .content-left h2 { 
+    font-size: 2.5rem; 
+    color: #f6ead2 !important; /* Warna Teks Crem */
+    margin-bottom: 16px; 
+    line-height: 1.2;
+}
+
+.content-left p, .content-right p { 
+    font-size: 1.1rem; 
+    color: var(--text-main); 
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.image-right, .image-left { 
+    height: 320px; 
+    border-radius: 16px; 
+    overflow: hidden; 
+    border: 3px solid var(--yellow-accent); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.image-right img, .image-left img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.btn-primary { 
+    display: inline-block; 
+    border: none; 
+    cursor: pointer; 
+    text-decoration: none; 
+    background-color: var(--yellow-accent); 
+    color: var(--bg-primary); 
+    padding: 12px 26px; 
+    border-radius: 8px; 
+    font-weight: 700; 
+    font-size: 1rem; 
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 10px rgba(229, 169, 60, 0.2);
+}
+
+.btn-primary:hover { 
+    background-color: var(--yellow-hover); 
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   4. HALAMAN MENU
+   ========================================== */
+.menu-page { 
+    padding: 40px 0; 
+    justify-content: flex-start;
+}
+
+.menu-header { 
+    text-align: center; 
+    margin-bottom: 40px; 
+}
+
+.menu-header h1 { 
+    font-size: 2.5rem; 
+    color: var(--yellow-accent);
+}
+
+.menu-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px; 
+    margin-bottom: 40px; 
+}
+
+/* KARTU MENU (Diubah agar teks crem terbaca) */
+.menu-item { 
+    display: flex; 
+    gap: 20px; 
+    align-items: center; 
+    background-color: var(--bg-card); /* Background maroon terang */
+    padding: 20px; 
+    border-radius: 14px; 
+    border: 2px solid var(--border-color); 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.menu-item:hover { 
+    transform: translateY(-8px); 
+    border-color: var(--yellow-hover); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.menu-image { 
+    width: 140px; 
+    height: 140px; 
+    flex-shrink: 0; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    position: relative; 
+    cursor: pointer; 
+}
+
+.menu-image img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.4s ease; 
+}
+
+.menu-item:hover .menu-image img { 
+    transform: scale(1.1); 
+}
+
+.cta-overlay { 
+    position: absolute; 
+    inset: 0; 
+    background-color: rgba(52, 12, 12, 0.85); 
+    color: var(--yellow-accent); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: 700; 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+
+.menu-image:hover .cta-overlay { 
+    opacity: 1; 
+}
+
+.menu-text h3 { 
+    font-size: 1.3rem; 
+    color: var(--yellow-accent); /* Kuning agar serasi dengan harga */
+}
+
+.short-desc { 
+    font-size: 0.95rem; 
+    color: var(--text-main); /* Sekarang teks crem ini 100% terbaca */
+    margin: 8px 0; 
+}
+
+.price { 
+    font-weight: 800; 
+    font-size: 1.25rem; 
+    color: var(--yellow-accent); 
+}
+
+/* ==========================================
+   5. MODAL / POPUP DETAIL MENU 
+   ========================================== */
+.modal-overlay { 
+    display: none; 
+    position: fixed; 
+    inset: 0; 
+    background-color: rgba(0, 0, 0, 0.8); 
+    z-index: 1000; 
+    align-items: center; 
+    justify-content: center; 
+    backdrop-filter: blur(3px);
+}
+
+.modal-overlay.active { 
+    display: flex; 
+}
+
+.close-btn { 
+    position: absolute; 
+    top: 20px; 
+    right: 40px; 
+    font-size: 40px; 
+    color: var(--text-main); 
+    cursor: pointer; 
+    transition: 0.2s; 
+    z-index: 10;
+}
+
+.close-btn:hover { 
+    color: var(--yellow-accent); 
+}
+
+/* Background Modal Disesuaikan */
+.modal-box { 
+    background-color: var(--bg-card); 
+    width: 90%; 
+    max-width: 800px; 
+    border-radius: 16px; 
+    overflow: hidden; 
+    display: flex; 
+    padding: 30px;
+    gap: 35px; 
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    border: 3px solid var(--yellow-accent);
+}
+
+.modal-left {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.modal-left img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    aspect-ratio: 1 / 1; 
+}
+
+.modal-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: flex-start;
+}
+
+.modal-right h2 { 
+    font-size: 2.2rem; 
+    color: var(--yellow-accent); 
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.modal-price-tag { 
+    font-size: 1.3rem; 
+    font-weight: 800; 
+    color: var(--yellow-hover); 
+    margin-bottom: 16px; 
+    display: block;
+}
+
+.modal-right p { 
+    color: var(--text-main); 
+    margin-bottom: 25px; 
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   6. FOOTER 
+   ========================================== */
+.footer { 
+    background-color: var(--bg-card); 
+    padding: 20px 0; 
+    border-top: 3px solid var(--border-color); 
+    margin-top: auto; 
+}
+
+.footer-container { 
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.footer-left p { 
+    color: var(--text-main); 
+    font-weight: 500;
+}
+
+.footer-right { 
+    display: flex; 
+    gap: 15px; 
+}
+
+.btn-social { 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    text-decoration: none; 
+    padding: 10px 18px; 
+    border-radius: 8px; 
+    font-weight: 700; 
+    color: #ffffff; 
+    transition: 0.3s; 
+    font-size: 0.9rem;
+}
+
+.btn-wa { 
+    background-color: #25D366; 
+}
+
+.btn-wa:hover { 
+    background-color: #1EBE57; 
+}
+
+.btn-ig { 
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+}
+
+.btn-ig:hover { 
+    filter: brightness(1.15); 
+}
+
+/* ==========================================
+   7. RESPONSIVE DESIGN (HP)
+   ========================================== */
+@media (max-width: 768px) {
+    .section { flex-direction: column; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .footer-container { flex-direction: column; gap: 15px; text-align: center; }
+    
+    .modal-box {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+    .modal-left img {
+        aspect-ratio: 4 / 3;
+    }
+    .close-btn {
+        top: 10px;
+        right: 20px;
+    }
+}
+
