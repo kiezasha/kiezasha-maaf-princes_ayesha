@@ -1,0 +1,89 @@
+body {
+    background-color: #0f071b;
+    font-family: 'Outfit', sans-serif;
+    color: #f8fafc;
+    overflow-x: hidden;
+}
+
+/* Animated Canvas Background */
+#heart-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: rgba(28, 12, 58, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 182, 193, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.glass-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card-hover:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 101, 163, 0.5);
+    box-shadow: 0 15px 35px rgba(255, 101, 163, 0.25);
+}
+
+/* Pulsing Glow Animation */
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(255, 101, 163, 0.4); }
+    50% { box-shadow: 0 0 40px rgba(255, 101, 163, 0.8); }
+}
+.pulse-glow {
+    animation: pulseGlow 3s infinite;
+}
+
+/* Floating Animation */
+@keyframes floatSlow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(2deg); }
+}
+.animate-float {
+    animation: floatSlow 4s ease-in-out infinite;
+}
+
+/* Candle Flame Flicker */
+@keyframes flicker {
+    0%, 100% { transform: scale(1) rotate(-2deg); opacity: 0.9; }
+    20% { transform: scale(1.1) rotate(2deg); opacity: 1; }
+    40% { transform: scale(0.95) rotate(-1deg); opacity: 0.8; }
+    60% { transform: scale(1.05) rotate(1deg); opacity: 1; }
+    80% { transform: scale(0.98) rotate(-2deg); opacity: 0.85; }
+}
+.flame {
+    animation: flicker 0.8s infinite alternate;
+    transform-origin: center bottom;
+}
+
+/* Tab Transition */
+.tab-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+.tab-content.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Polaroid Effect */
+.polaroid {
+    background: white;
+    padding: 12px 12px 24px 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+}
+.polaroid:hover {
+    transform: scale(1.04) rotate(0deg) !important;
+    z-index: 10;
+}
